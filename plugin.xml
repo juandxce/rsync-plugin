@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-rsync-plugin"
+    version="1.0.0">
+    <name>Cordova Rsync Plugin</name>
+    <description>
+        A plugin made to sync remotely directories between an android app and a remote server.
+    </description>
+    <license>MIT</license>
+    <keywords>rsync, android</keywords>
+    <repo>https://github.com/driftyco/cordova-plugin-template.git</repo>
+    <issue>https://github.com/driftyco/cordova-plugin-template/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/rsyncPlugin.js" name="plugin">
+        <runs/>
+
+        <!-- This is the window variable name you want, like window.rsyncPlugin -->
+        <clobbers target="rsyncPlugin" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="rsyncPlugin">
+          <param name="android-package" value="com.example.rsyncPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/rsyncPlugin.java" target-dir="src/com/example/" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/rsyncPlugin.js" name="plugin">
+            <runs/>
+            <clobbers target="rsyncPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="rsyncPlugin">
+                <param name="ios-package" value="rsyncPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/rsyncPlugin.h" />
+        <source-file src="src/ios/rsyncPlugin.m" />
+    </platform>
+</plugin>
